@@ -80,15 +80,6 @@ def process_message_route():
         "botResponse": bot_response
     }), 200
 
-# Define the route for fetching book-related data from Open Library API
-@app.route('/fetch-book-data', methods=['GET'])
-def fetch_book_data_route():
-    query = request.args.get('query')
-    if query:
-        data = fetch_book_data(query)
-        if data:
-            return jsonify(data), 200
-    return jsonify({"error": "Invalid query or unable to fetch data from Open Library API"}), 400
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000, host='0.0.0.0')
